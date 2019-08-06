@@ -1,7 +1,11 @@
 {
   "name": "dota2-loading-screen",
   "version": "1.0.0",
-  "description": "",
+  "description": "Extract (and decompile) DotA2 loading screens",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Luluno01/node-dota2-loading-screen.git"
+  },
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
