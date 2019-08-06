@@ -5,7 +5,9 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "e": "node build/scripts/extract.js",
+    "ed": "node build/scripts/extractAndDecompile.js"
   },
   "author": "Untitled",
   "license": "ISC",

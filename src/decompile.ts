@@ -11,8 +11,9 @@ const OTHER_PATH = 'bin/valve-resource-format-decompiler/vrf_decompiler'
 /**
  * Decompile `.vtex_c` files in a folder
  * @param folder Target folder that contains `.vtex_c` files to be decompiled
+ * @param dst Destination folder. Defaults to `folder`
  */
-export async function decompile(folder: string): Promise<void> {
+export async function decompile(folder: string, dst: string = folder, showOutput: boolean = false): Promise<void> {
   let decompilerPath: string
   if(os.platform() == 'win32') {
     decompilerPath = WINDOWS_PATH
@@ -21,7 +22,11 @@ export async function decompile(folder: string): Promise<void> {
     decompilerPath = OTHER_PATH
     await chmod(OTHER_PATH, 0x775)
   }
-  const decompiler = spawn(decompilerPath, [ '--recursive', '-d', '-i', folder, '-o', folder ])
+  const decompiler = spawn(decompilerPath, [ '--recursive', '-d', '-i', folder, '-o', dst ], {
+    ...showOutput ? {
+      stdio: [ 0, 1, 2 ]
+    } : {}
+  })
   return new Promise((res, rej) => {
     decompiler.on('exit', code => {
       if(code) rej(code)

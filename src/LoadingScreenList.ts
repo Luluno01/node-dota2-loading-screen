@@ -23,6 +23,9 @@ async function ensureFileName(folder: string, fileName: string, extension: strin
 export class LoadingScreenList {
   public static prefix: string = 'panorama/images/'
   public list: string[] = []
+  public get length() {
+    return this.list.length
+  }
 
   private vpk: VPKFile
 
@@ -50,6 +53,7 @@ export class LoadingScreenList {
    * @param dst Destination folder
    */
   public async extractAll(dst: string) {
+    let extracted: number = 0
     if(!await exists(dst)) {
       await mkdir(dst, { recursive: true })
     }
@@ -78,8 +82,10 @@ export class LoadingScreenList {
       if(data) {
         names.set(baseFileName, nextIndex)
         await writeFile(fileName, data)
+        extracted++
       }
     }))
+    return extracted
   }
 
   /**
@@ -87,8 +93,9 @@ export class LoadingScreenList {
    * @param dst Destination folder
    */
   public async extracAndDecompileAll(dst: string) {
-    await this.extractAll(dst)
+    const extracted = await this.extractAll(dst)
     await decompile(dst)
+    return extracted
   }
 }
 
