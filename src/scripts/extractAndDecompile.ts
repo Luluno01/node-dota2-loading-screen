@@ -4,7 +4,7 @@ import decompile from '../decompile'
 
 
 function usage() {
-  console.log(`npm run ed path/to/dota\\ 2\\ beta/game/dota/pak01_dir.vpk \\
+  console.log(`npm run ed -- path/to/dota\\ 2\\ beta/game/dota/pak01_dir.vpk \\
   [dst] [decompile_dst]
 
   dst:

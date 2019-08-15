@@ -10,14 +10,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
+    "install": "tsc",
     "e": "node build/scripts/extract.js",
     "ed": "node build/scripts/extractAndDecompile.js"
   },
   "author": "Untitled",
   "license": "ISC",
   "dependencies": {
-    "imagemin": "^7.0.0",
-    "imagemin-jpegtran": "^6.0.0",
     "typescript": "^3.5.3",
     "vpk": "git+https://github.com/Luluno01/node-vpk.git"
   },

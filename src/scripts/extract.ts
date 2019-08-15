@@ -3,7 +3,11 @@ import LoadingScreenList from '../LoadingScreenList'
 
 
 function usage() {
-  console.log('npm run e <path/to/dota\\ 2\\ beta/game/dota/pak01_dir.vpk> [dst=loading-screens]')
+  console.log(`npm run e -- path/to/dota\\ 2\\ beta/game/dota/pak01_dir.vpk \\
+  [dst]
+
+  dst:
+    Destination folder (Default: loading-screens)`)
 }
 
 async function main() {
